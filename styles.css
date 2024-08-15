@@ -1,0 +1,210 @@
+/*// Author: S.Raaj Nishanth*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#instructions {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Light gradient background */
+    border: 2px solid #2196f3; /* Border to match the theme */
+    padding: 20px; /* Adequate padding for spacing */
+    border-radius: 15px; /* Rounded corners for a modern feel */
+    font-size: 16px; /* Base font size */
+    color: #333; /* Dark gray text for good contrast */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow for a subtle depth */
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Maximum width */
+    margin-bottom: 20px; /* Spacing below the panel */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    text-align: center; /* Centered text */
+    position: relative; /* To position the decorative elements */
+    overflow: hidden; /* Hide overflow from decorative elements */
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+    transition: transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+#instructions:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+#instructions h3 {
+    margin-top: 0; /* Remove default top margin */
+    color: #1e88e5; /* Slightly darker blue for heading */
+    font-size: 26px; /* Larger font size for the heading */
+    font-weight: bold; /* Bold text for emphasis */
+    text-transform: uppercase; /* Uppercase for a modern look */
+    letter-spacing: 1px; /* Slight spacing for readability */
+    background: linear-gradient(135deg, #42a5f5, #1e88e5); /* Gradient text */
+    -webkit-background-clip: text; /* Clip the background to text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#instructions p, #instructions ul {
+    margin-bottom: 15px; /* Consistent spacing */
+    line-height: 1.8; /* Improve readability */
+}
+
+#instructions ul {
+    padding-left: 20px; /* Indent list items */
+    list-style-type: disc; /* Disc bullets for list items */
+    color: #1e88e5; /* Themed bullet color */
+}
+
+#instructions li {
+    margin-bottom: 10px; /* Space between list items */
+    position: relative;
+    padding-left: 10px; /* Space for bullet icon */
+}
+
+#instructions li::before {
+    content: '✔'; /* Custom bullet icon */
+    position: absolute;
+    left: 0;
+    color: #1e88e5; /* Themed color */
+    font-size: 18px; /* Slightly larger bullet icon */
+}
+
+#instructions li strong {
+    color: #d32f2f; /* Red color for emphasis */
+}
+
+#instructions::before, #instructions::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #2196f3;
+    border-radius: 50%;
+    opacity: 0.1; /* Lighter opacity for subtle effect */
+    z-index: -1; /* Place behind the text */
+}
+
+#instructions::before {
+    top: -60px;
+    left: -60px;
+}
+
+#instructions::after {
+    bottom: -60px;
+    right: -60px;
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.game-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+#gameCanvas {
+    border: 2px solid #2196f3;
+    background-color: #e3f2fd;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Clickable Scoreboard */
+#score-board {
+    font-size: 24px;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#score-board:hover {
+    background-color: #e0f7fa;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.joystick-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.control-button {
+    width: 60px;
+    height: 60px;
+    background-color: #2196f3;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.control-button:active {
+    background-color: #1976d2;
+}
+
+@media (max-width: 600px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .control-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    #instructions {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

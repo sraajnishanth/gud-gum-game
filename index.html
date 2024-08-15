@@ -1,0 +1,42 @@
+<!-- // Author: S.Raaj Nishanth -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gud Gum Bubble Shooter Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Gud Gum Bubble Shooter!</h1>
+        
+        <div id="instructions">
+            <h3>Game Instructions</h3>
+            <p>Use the arrow keys to move the cannon:</p>
+            <ul>
+                <li><strong>Left Arrow:</strong> Move left</li>
+                <li><strong>Right Arrow:</strong> Move right</li>
+                <li><strong>Up Arrow:</strong> Shoot</li>
+            </ul>
+            <p>Pop the pink bubbles to get Gud Gum and gain points. Avoid the grey bubbles as they are plastic!</p>
+            <p><strong>Note:</strong> Your score can be redeemed on the Gud Gum website. <strong>Click on the scoreboard</strong> to visit the site.</p>
+            <p><em>This game was created for the final term project in "Strategies for Mobile Marketing" by Group 4 - Comprising Raaj Nishanth, Karthikeyan, Gotham, Dinesh, Arasu, Shloka, and Akanksha.</em></p>
+        </div>
+
+        <div class="game-content">
+            <canvas id="gameCanvas"></canvas>
+            <a href="https://www.gudgum.com" id="score-board" target="_blank">Score: 0</a>
+            <!-- On-screen joystick-style controls -->
+            <div class="joystick-container">
+                <div class="control-button" id="leftButton">◄</div>
+                <div class="control-button" id="shootButton">●</div>
+                <div class="control-button" id="rightButton">►</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
